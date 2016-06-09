@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Dandaj\\Api\\": "src/"
+            "Dandaj\\ApiClient\\": "src/"
         }
     },
     "minimum-stability": "dev",

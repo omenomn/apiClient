@@ -2,7 +2,7 @@
 
 namespace Dandaj\ApiClient;
 
-class GDataApi
+class SsoApi
 {
   public function __construct()
   {
