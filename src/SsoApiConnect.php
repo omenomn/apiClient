@@ -4,6 +4,8 @@ namespace Dandaj\ApiClient;
 
 class SsoApiConnect
 {
+  protected $result;
+
   public function __construct()
   {      
     $conf = 'ssoApiClient';
@@ -28,7 +30,7 @@ class SsoApiConnect
 
     $result = curl_exec($ch);
     $result = json_decode($result);
-
+    
     if ($result && $result->status_code == 200) {
       session()->put('ssoApiToken', $result->token);
     }
