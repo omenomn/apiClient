@@ -80,6 +80,26 @@ class SsoApi
     return $result;     
   }
 
+  public function indexWebsitesUser($externalId)
+  {
+    $conf = $this->conf;
+    $url = config($conf . '.sso.url') . '/' . config($conf . '.sso.prefix') . '/users/' . $externalId . '/websites';
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'auth-token:' . session($this->sessionName),
+      ]
+    );
+    
+    $result = curl_exec($ch);
+    $result = json_decode($result);  
+     
+    return $result;     
+  }
+
   public function indexUsers()
   {
     $conf = $this->conf;
