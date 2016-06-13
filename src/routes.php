@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 Route::get('/sso/get/{str}', function (Request $request, $str) {
   $encryptionKey = env('SSO_KEY');
   $iv = env('SSO_IV');
@@ -19,8 +21,8 @@ Route::get('/sso/get/{str}', function (Request $request, $str) {
 
 })->where('str', '(.*)');
 
-Route::get('/sso/logout', function (Request $request, $str) {
-  if (user())
+Route::get('/sso/logout', function (Request $request) {
+  if (auth()->user())
     Auth::logout();
   
   return response()
