@@ -25,6 +25,5 @@ Route::get('/sso/logout', function (Request $request, $str) {
   
   return response()
       ->json(['status' => 'ok'])
-      ->setCallback($request->input('callback'))
-
+      ->setCallback($request->input('callback'));
 });
