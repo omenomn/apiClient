@@ -15,6 +15,9 @@ class ApiClientServiceProvider extends ServiceProvider
 
   public function boot()
   {
+    // loading the routes file
+    require __DIR__ . '/Http/routes.php';
+    
     // Default config 
     $this->mergeConfigFrom(
           __DIR__ . '/config/ssoApiClient.php', 'ssoApiClient'
